@@ -1,0 +1,316 @@
+:root {
+    --primary: #282c34;
+    --accent: #61dafb;
+    --bg: #20232a;
+    --card-bg: #282c34;
+    --text: #abb2bf;
+    --code-bg: #1e1e1e;
+    --code-text: #ffffff;
+    --subsection-bg: #2c313c;
+    
+    /* Syntax highlighting colors - VSCode-like */
+    --syntax-keyword: #c678dd;    /* purple for keywords */
+    --syntax-string: #98c379;     /* green for strings */
+    --syntax-comment: #7f848e;    /* gray for comments */
+    --syntax-tag: #e06c75;        /* red for HTML tags */
+    --syntax-attribute: #d19a66;  /* orange for attributes */
+    --syntax-variable: #e5c07b;   /* yellow for variables */
+    --syntax-function: #61afef;   /* blue for functions */
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth; /* smooth scrolling */
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Fira Code', monospace;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  header {
+    background: var(--primary);
+    color: var(--code-text);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  header h1:hover {
+    color: var(--accent);
+    cursor: pointer;
+  }
+  
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav a {
+    color: var(--code-text);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+  
+  header nav a.active,
+  header nav a:hover {
+    color: var(--accent);
+  }
+  
+  header nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  
+  header nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  
+  header nav a:hover::after {
+    width: 100%;
+  }
+  
+  .section {
+    padding-top: 80px;           /* space for sticky header */
+    margin-bottom: 4rem;
+    scroll-margin-top: 100px;    /* offset anchor to avoid header overlap */
+  }
+  
+  .section h2 {
+    display: inline-block;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .subsection {
+    background: var(--subsection-bg);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .subsection:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .subsection h3 {
+    margin-top: 0;
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+  }
+  
+  /* Styles for code blocks */
+  pre {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  pre code {
+    font-family: 'Fira Code', monospace;
+  }
+  
+  /* Adding copy button for code blocks */
+  .code-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem;
+    background: #333;
+    border-radius: 4px 4px 0 0;
+    font-size: 0.8rem;
+  }
+  
+  .copy-btn {
+    background: #444;
+    border: none;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .copy-btn:hover {
+    background: #555;
+  }
+  
+  .code-container {
+    position: relative;
+    margin: 1rem 0;
+  }
+  
+  /* Syntax highlighting classes */
+  .hljs-keyword {
+    color: var(--syntax-keyword);
+  }
+  
+  .hljs-string {
+    color: var(--syntax-string);
+  }
+  
+  .hljs-comment {
+    color: var(--syntax-comment);
+    font-style: italic;
+  }
+  
+  .hljs-tag {
+    color: var(--syntax-tag);
+  }
+  
+  .hljs-attr {
+    color: var(--syntax-attribute);
+  }
+  
+  .hljs-variable {
+    color: var(--syntax-variable);
+  }
+  
+  .hljs-function {
+    color: var(--syntax-function);
+  }
+  
+  /* Video styling */
+  video {
+    display: block;
+    margin: 2rem auto;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Visual tips styling */
+  p strong {
+    color: var(--accent);
+  }
+  
+  /* Interactive buttons */
+  .action-btn {
+    background-color: var(--primary);
+    color: #fff;
+    border: 2px solid var(--accent);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    transition: all 0.3s ease;
+  }
+  
+  .action-btn:hover {
+    background-color: var(--accent);
+    color: var(--primary);
+  }
+  
+  /* Footer styling */
+  footer {
+    background: var(--primary);
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    text-align: center;
+    border-top: 1px solid #3a3f4b;
+  }
+  
+  /* Theme toggle */
+  .theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: var(--primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    border: none;
+    font-size: 1.2rem;
+  }
+  
+  /* Progress indicator */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 20;
+  }
+  
+  .progress-bar {
+    height: 4px;
+    background: var(--accent);
+    width: 0%;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .header-inner {
+      flex-direction: column;
+      padding: 1rem;
+    }
+    
+    header nav ul {
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .container {
+      padding: 1rem;
+    }
+  }

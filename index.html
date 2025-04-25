@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn Web Development</title>
+  <!-- Google Fonts - Fira Code for code styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Progress bar at top of page -->
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+
+  <header>
+    <div class="header-inner container">
+      <h1>Learn Web Development</h1>
+      <nav>
+        <ul>
+          <li><a href="#htmlbasics">HTML Basics</a></li>
+          <li><a href="#cssfundamentals">CSS Fundamentals</a></li>
+          <li><a href="#jsessentials">JavaScript Essentials</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <article id="htmlbasics" class="section">
+      <h2>📄 HTML Basics</h2>
+
+      <div class="subsection">
+        <h3>1. Document Structure</h3>
+        <p><strong>What it is:</strong> the "skeleton" of every webpage.</p>
+        <p><strong>Why it matters:</strong> Browsers need a predictable wrapper to know how to parse and display your content.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>&lt;!DOCTYPE html&gt;           &lt;!-- tells browser: HTML5 --&gt;
+&lt;html lang="en"&gt;          &lt;!-- root element, lang for accessibility/SEO --&gt;
+  &lt;head&gt;                  &lt;!-- metadata (title, styles, character set) --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;                  &lt;!-- everything visible goes here --&gt;
+    &lt;!-- your content --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p><strong>Visual tip:</strong> imagine nesting Russian dolls—&lt;html&gt; wraps &lt;head&gt; and &lt;body&gt;, which wrap everything else.</p>
+        <button class="action-btn" onclick="openDemo('html-structure')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>2. Text &amp; Headings</h3>
+        <p><strong>What it is:</strong> semantic tags for titles and paragraphs (&lt;h1&gt;–&lt;h6&gt;, &lt;p&gt;).</p>
+        <p><strong>Why it matters:</strong> Screen-readers &amp; search engines rely on heading hierarchy to understand your page.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;
+&lt;p&gt;This is a paragraph of text explaining something under the main title.&lt;/p&gt;
+&lt;h2&gt;Subsection&lt;/h2&gt;
+&lt;p&gt;More detail here.&lt;/p&gt;</code></pre>
+        <p><strong>Visual tip:</strong> think of headings like chapters and sub-chapters in a book.</p>
+        <button class="action-btn" onclick="openDemo('text-headings')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>3. Links &amp; Images</h3>
+        <p><strong>What it is:</strong> anchors (&lt;a&gt;) and media embeds (&lt;img&gt;).</p>
+        <p><strong>Why it matters:</strong> navigation and visual content make sites engaging and accessible.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>&lt;a href="https://example.com" target="_blank" rel="noopener"&gt;
+  Visit Example
+&lt;/a&gt;
+&lt;img src="photo.jpg" alt="A smiling cat" width="300"&gt;</code></pre>
+        <ul>
+          <li><code>href</code>: destination URL</li>
+          <li><code>target="_blank"</code>: open in new tab</li>
+          <li><code>rel="noopener"</code>: security best practice</li>
+          <li><code>alt</code>: describes image for users who can't see it</li>
+        </ul>
+        <p><strong>Visual tip:</strong> picture each &lt;a&gt; as a bridge—you label it and point it where you want visitors to go.</p>
+        <button class="action-btn" onclick="openDemo('links-images')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>4. Lists</h3>
+        <p><strong>What it is:</strong> ordered (&lt;ol&gt;), unordered (&lt;ul&gt;) and definition lists (&lt;dl&gt;).</p>
+        <p><strong>Why it matters:</strong> grouping related items semantically for clarity and accessibility.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>&lt;ul&gt;
+  &lt;li&gt;First bullet&lt;/li&gt;
+  &lt;li&gt;Second bullet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Step one&lt;/li&gt;
+  &lt;li&gt;Step two&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;&lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;&lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+        <p><strong>Visual tip:</strong> imagine a grocery list (&lt;ul&gt;) vs. recipe steps (&lt;ol&gt;).</p>
+        <button class="action-btn" onclick="openDemo('lists')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>5. Forms &amp; Inputs</h3>
+        <p><strong>What it is:</strong> &lt;form&gt; wrapper + &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt;, &lt;button&gt;.</p>
+        <p><strong>Why it matters:</strong> the primary way users send you data (emails, orders, comments).</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+
+  &lt;label for="message"&gt;Message:&lt;/label&gt;
+  &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        <ul>
+          <li><code>action</code>: where data goes</li>
+          <li><code>method</code>: GET vs. POST</li>
+          <li><code>required</code>: browser-enforced validation</li>
+        </ul>
+        <p><strong>Visual tip:</strong> see each input as a field on a paper form—label next to the blank.</p>
+        <button class="action-btn" onclick="openDemo('forms')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>6. Semantic Elements</h3>
+        <p><strong>What it is:</strong> meaningful wrappers: &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;.</p>
+        <p><strong>Why it matters:</strong> improves SEO, accessibility, and maintainability.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>&lt;header&gt;…&lt;/header&gt;
+&lt;nav&gt;…&lt;/nav&gt;
+&lt;main&gt;
+  &lt;article&gt;…&lt;/article&gt;
+  &lt;aside&gt;…&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;…&lt;/footer&gt;</code></pre>
+        <p><strong>Visual tip:</strong> treat them like zones on a map: header at top, nav on side, footer at bottom.</p>
+        <button class="action-btn" onclick="openDemo('semantic')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>7. Media</h3>
+        <p><strong>What it is:</strong> &lt;audio&gt;, &lt;video&gt;, &lt;figure&gt; + &lt;figcaption&gt;.</p>
+        <p><strong>Why it matters:</strong> native playback &amp; captions without plugins.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>&lt;figure&gt;
+  &lt;video controls width="600"&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+    Your browser doesn&rsquo;t support HTML5 video.
+  &lt;/video&gt;
+  &lt;figcaption&gt;My vacation clip&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+        <p><strong>Visual tip:</strong> picturing a photo album: each &lt;figure&gt; is a framed picture with a caption.</p>
+        <button class="action-btn" onclick="openDemo('media')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>8. Tables</h3>
+        <p><strong>What it is:</strong> tabular data: &lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;.</p>
+        <p><strong>Why it matters:</strong> best for spreadsheets, schedules, or any grid of data.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>&lt;table&gt;
+  &lt;caption&gt;Monthly Sales&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Product&lt;/th&gt;&lt;th&gt;Qty&lt;/th&gt;&lt;th&gt;Revenue&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Widget A&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;td&gt;$1,000&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        <p><strong>Visual tip:</strong> imagine an Excel sheet embedded in your page.</p>
+        <button class="action-btn" onclick="openDemo('tables')">Try It Live</button>
+      </div>
+    </article>
+
+    <article id="cssfundamentals" class="section">
+      <h2>🎨 CSS Fundamentals</h2>
+
+      <div class="subsection">
+        <h3>1. Selectors &amp; Specificity</h3>
+        <p><strong>What it is:</strong> how you "point" at elements to style them.</p>
+        <p><strong>Why it matters:</strong> determines which rule wins when multiple apply.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>/* Type selector—targets all &lt;p&gt; */
+p { color: blue; }
+
+/* Class selector—targets elements with class="btn" */
+.btn { padding: 8px; }
+
+/* ID selector—targets one unique element with id="main" */
+#main { margin: 0 auto; }
+
+/* Specificity ranking: inline &gt; ID &gt; class/attribute/pseudo-class &gt; element/pseudo-element */</code></pre>
+        <p><strong>Visual tip:</strong> think of CSS rules as arrows—some arrows (inline) are stronger than others (type).</p>
+        <button class="action-btn" onclick="openDemo('css-selectors')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>2. Box Model</h3>
+        <p><strong>What it is:</strong> every element is a rectangle with layers: content → padding → border → margin.</p>
+        <p><strong>Why it matters:</strong> controls spacing and sizing.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>.box {
+  width: 200px;       /* content width */
+  padding: 20px;      /* inside buffer */
+  border: 5px solid;  /* visible edge */
+  margin: 10px;       /* outside gap */
+}
+
+/* [ margin | border | padding | content ] */</code></pre>
+        <p><strong>Visual tip:</strong> picture a gift box—with padding as bubble wrap, border as the box itself, margin as space between boxes.</p>
+        <button class="action-btn" onclick="openDemo('box-model')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>3. Typography &amp; Colors</h3>
+        <p><strong>What it is:</strong> fonts, sizes, line-height, color properties.</p>
+        <p><strong>Why it matters:</strong> readability and brand identity.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>body {
+  font-family: 'Arial', sans-serif;
+  color: #333;              /* text color */
+  background-color: #f4f4f4;
+  line-height: 1.6;         /* spacing between lines */
+}
+h1 { font-size: 2rem; }     /* rem = relative to root font-size */</code></pre>
+        <p><strong>Visual tip:</strong> see text as painting on a canvas—color &amp; spacing set the mood.</p>
+        <button class="action-btn" onclick="openDemo('typography')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>4. Layout</h3>
+        <p><strong>a) Flexbox</strong> (1-dimensional row or column).</p>
+        <pre><code>.container {
+  display: flex;              /* turn on flex mode */
+  justify-content: center;    /* main-axis alignment */
+  align-items: stretch;       /* cross-axis alignment */
+  flex-wrap: wrap;            /* allow wrapping */
+}</code></pre>
+        <p><strong>b) Grid</strong> (2-dimensional rows and columns).</p>
+        <pre><code>.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;  /* two columns: 1 part + 2 parts */
+  gap: 10px;                        /* space between cells */
+}</code></pre>
+        <p><strong>Visual tip:</strong> imagine graph paper—you define rows &amp; columns and place items.</p>
+        <button class="action-btn" onclick="openDemo('layout')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>5. Responsive Design</h3>
+        <p><strong>What it is:</strong> making your site work on phones → desktops.</p>
+        <p><strong>Why it matters:</strong> most traffic is mobile!</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>/* base (mobile-first) */
+.container { padding: 10px; }
+
+/* larger screens */
+@media (min-width: 768px) {
+  .container { padding: 20px; }
+}</code></pre>
+        <p><strong>Visual tip:</strong> imagine your layout like liquid that flows and reshapes at different widths.</p>
+        <button class="action-btn" onclick="openDemo('responsive')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>6. Positioning</h3>
+        <p><strong>What it is:</strong> removes elements from normal flow or tweaks placement.</p>
+        <p><strong>Types:</strong> static | relative | absolute | fixed | sticky.</p>
+        <pre><code>.relative-box { position: relative; top: 10px; }
+.absolute-box { position: absolute; right: 0; bottom: 0; }</code></pre>
+        <p><strong>Visual tip:</strong> think of marking on a transparent sheet overlaying your page.</p>
+        <button class="action-btn" onclick="openDemo('positioning')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>7. Visual Effects</h3>
+        <p><strong>What it is:</strong> smooth transitions, keyframe animations, transforms.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>/* transition */
+.button {
+  transition: background-color 0.3s ease;
+}
+.button:hover {
+  background-color: #ff0;
+}
+
+/* keyframe animation */
+@keyframes slide-in {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+.panel {
+  animation: slide-in 0.5s forwards;
+}</code></pre>
+        <p><strong>Visual tip:</strong> picture a flipbook—each keyframe is a page in the flipbook.</p>
+        <button class="action-btn" onclick="openDemo('effects')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>8. Preprocessors (Sass)</h3>
+        <p><strong>What it is:</strong> tools that add variables, nesting, mixins.</p>
+        <p><strong>Why it matters:</strong> DRY and easier theming.</p>
+        <p><strong>Example:</strong></p>
+        <pre><code>$primary-color: #1E88E5;
+
+.button {
+  background: $primary-color;
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+}</code></pre>
+        <p><strong>Visual tip:</strong> imagine CSS with superpowers—variables are magic placeholders.</p>
+        <button class="action-btn" onclick="openDemo('preprocessors')">Try It Live</button>
+      </div>
+    </article>
+
+    <article id="jsessentials" class="section">
+      <h2>⚙️ JavaScript Essentials</h2>
+
+      <div class="subsection">
+        <h3>1. Syntax &amp; Basics</h3>
+        <p><strong>What it is:</strong> the language building blocks.</p>
+        <p><strong>Key points:</strong></p>
+        <pre><code>// variables
+let name = 'Alice';
+const PI  = 3.14;
+
+// data types
+// string, number, boolean, null, undefined, object, array</code></pre>
+        <p><strong>Visual tip:</strong> think of variables as labeled jars holding different ingredients.</p>
+        <button class="action-btn" onclick="openDemo('js-basics')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>2. Control Flow</h3>
+        <p><strong>What it is:</strong> make decisions and repeat tasks.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>if (score &gt; 50) {
+  console.log('You win!');
+} else {
+  console.log('Try again');
+}
+
+for (let i = 0; i &lt; 5; i++) {
+  console.log(i);
+}</code></pre>
+        <p><strong>Visual tip:</strong> picture a flowchart with diamonds (if) and loops circling back.</p>
+        <button class="action-btn" onclick="openDemo('control-flow')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>3. Functions</h3>
+        <p><strong>What it is:</strong> reusable blocks of code.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>function greet(user) {
+  return `Hello, ${user}!`;
+}
+// arrow function
+const add = (a, b) => a + b;</code></pre>
+        <p><strong>Visual tip:</strong> treat functions like little machines—you feed inputs and get outputs.</p>
+        <button class="action-btn" onclick="openDemo('functions')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>4. DOM Manipulation</h3>
+        <p><strong>What it is:</strong> changing the page after it's loaded.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>const btn = document.querySelector('.btn');
+btn.textContent = 'Clicked!';
+
+// create new element
+const p = document.createElement('p');
+p.textContent = 'New paragraph';
+document.body.append(p);</code></pre>
+        <p><strong>Visual tip:</strong> see the DOM as a tree—each node is a branch you can prune, graft, or rename.</p>
+        <button class="action-btn" onclick="openDemo('dom')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>5. Events</h3>
+        <p><strong>What it is:</strong> reacting to user actions.</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>btn.addEventListener('click', () => {
+  alert('Button was clicked!');
+});
+// event propagation: capture → target → bubble</code></pre>
+        <p><strong>Visual tip:</strong> imagine throwing a rock (event) into a pond; ripples go outward (bubbling).</p>
+        <button class="action-btn" onclick="openDemo('events')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>6. Asynchronous JS</h3>
+        <p><strong>What it is:</strong> handling tasks that take time (fetching data).</p>
+        <p><strong>How it works:</strong></p>
+        <pre><code>// Promises
+fetch('/api/data')
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
+// async/await
+async function load() {
+  try {
+    const res = await fetch('/api/data');
+    const data = await res.json();
+    console.log(data);
+  } catch (e) {
+    console.error(e);
+  }
+}</code></pre>
+        <p><strong>Visual tip:</strong> think of Promises as promise cards—they'll deliver the result later.</p>
+        <button class="action-btn" onclick="openDemo('async')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>7. ES6+ Features</h3>
+        <p><strong>What it is:</strong> modern syntax sugar and modules.</p>
+        <p><strong>Key features:</strong></p>
+        <pre><code>// template literals
+const msg = `Hello, ${name}!`;
+
+// destructuring
+const { title, author } = book;
+
+// modules (in separate files)
+// export
+export function foo() { … }
+// import
+import { foo } from './utils.js';</code></pre>
+        <p><strong>Visual tip:</strong> see modules as LEGO blocks—you snap pieces together instead of rewriting.</p>
+        <button class="action-btn" onclick="openDemo('es6')">Try It Live</button>
+      </div>
+
+      <div class="subsection">
+        <h3>8. Debugging</h3>
+        <p><strong>What it is:</strong> finding and fixing errors.</p>
+        <p><strong>Tools:</strong> console.log(...), console.error(...), DevTools breakpoints, ESLint.</p>
+        <p><strong>Visual tip:</strong> use breakpoints like "pause" buttons—inspect variables mid-execution.</p>
+        <button class="action-btn" onclick="openDemo('debugging')">Try It Live</button>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Learn Web Dev. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
